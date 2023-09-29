@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
+  shouldApplyClass: boolean = true;
+
+
+  getDynamicClass(): string{
+
+      // Your condition here
+      return this.shouldApplyClass ? 'hidden' : '';
+  }
+
+  toggleClass() {
+    this.shouldApplyClass = !this.shouldApplyClass;
+  }
+
 
 }
