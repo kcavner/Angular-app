@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomButtonComponent } from './custom-button/custom-button.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomButtonComponent
+    NavigationComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
