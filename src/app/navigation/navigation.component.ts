@@ -20,7 +20,7 @@ export class NavigationComponent {
   currentFolderSvg: string = this.folderSvg
 
   getDynamicClass(): string{
-      return this.shouldApplyClass ? 'hidden' : '';
+      return this.shouldApplyClass ? 'hover:cursor-pointer hidden' : 'hover:cursor-pointer';
   }
 
   toggleBarSvg() {
