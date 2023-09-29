@@ -23,6 +23,7 @@ export class NavigationComponent {
 
   toggleSvg() {
     this.currentBarSvg = this.currentBarSvg === this.barSvg ? this.staggeredBarSvg : this.barSvg;
+    this.toggleClass()
   }
 
   toggleClass() {
