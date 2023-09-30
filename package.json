@@ -1,0 +1,24 @@
+{
+  "name": "angular-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && ng serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcavner/Angular-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcavner/Angular-app/issues"
+  },
+  "homepage": "https://github.com/kcavner/Angular-app#readme",
+  "dependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
