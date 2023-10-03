@@ -11,7 +11,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  tiers:[]
+  notes: { type: Schema.Types.ObjectId, ref: 'Notes' },
 
     
 
