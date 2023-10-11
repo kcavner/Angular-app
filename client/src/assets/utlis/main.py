@@ -1,43 +1,47 @@
 import random
+import time
 
-v1 = []
-v2 = []
-map = []
+class Warrior:
+    title = 'warrior'
+    speed = 2
+    player_life = 1000
+    enemy_life = 1000
 
-def randVex():
-    vexArr = []
-    for _ in range(3):
-        vexArr.append(random.randint(0, 20))
-    return vexArr
+    def __init__(self, role):
+        self.role = role
 
-def fill():
-    for _ in range(8000):
-        num = randVex()
-        cloneCheck(num)
-        v1.clear()
+    def combat(self):
+        while True:  # Infinite game loop
+            if self.role == "player":
+                player_damage = random.randint(45, 60)
+                if random.randint(1, 5) == 1:
+                    player_damage *= 2  # Critical hit
 
-def cloneCheck(vex):
-    for i in range(len(map)):
-        if map[i] == vex:
-            return
-    map.append(list(vex))  # Append a copy of vex to map if it's not found
+                enemy_damage = random.randint(45, 60)
+                if random.randint(1, 5) == 1:
+                    enemy_damage *= 2  # Critical hit
 
-# fill()
-# print(len(map) /8000 * 100)
+                self.enemy_life -= player_damage
+                self.player_life -= enemy_damage
 
-print(randVex())
-    
-# randVex(v1);
-# randVex(v2);
-# print(v1,v2)
-# result = magnitude(v1, v2)
-# formatted_result = "{:.3f}".format(result)
-# print(formatted_result)
+                print(f"Player {player_damage} damage!", end=" ")
+                if player_damage > 60:
+                    print("(Critical Hit!)")
 
-# def magnitude(vex1,vex2):
-#     dx = vex1[0] - vex2[0];
-#     dy = vex1[1] - vex2[1];
-#     dz = vex1[2] - vex2[2];
-#     vector = [dx,dy,dz];
-#     magnitude = math.sqrt(dx**2 + dy**2 + dz**2);
-#     return magnitude
+                print(f"Enemy {enemy_damage} damage!", end=" ")
+                if enemy_damage > 60:
+                    print("(Critical Hit!)")
+
+                print(f"Enemy life: {self.enemy_life} Player life: {self.player_life}")
+
+                if self.enemy_life <= 0:
+                    print("Enemy defeated!")
+                    break
+
+            time.sleep(1)
+
+# Create player instance
+player = Warrior("player")
+
+# Start combat
+player.combat()
