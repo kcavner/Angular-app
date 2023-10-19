@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const Note = require("../models/Notes")
+const User = require("../models/User")
 
 module.exports = {
 
+    
     async postNote(req, res){
         try {
             const note = new Note(req.body)

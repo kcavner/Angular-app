@@ -52,4 +52,14 @@ module.exports = {
       return res.status(401).json({ isAuthenticated: false });
     }
   },
+  async getNotes(req,res){
+    try{
+        const userId = req.params.id
+        const notes = await User.findById(userId)
+
+    } catch (error) {
+        console.log(error);
+      res.status(400).send(error);
+    }
+},
 };
