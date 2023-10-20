@@ -8,9 +8,15 @@ module.exports = {
     
     async postNote(req, res){
         try {
-            const note = new Note(req.body)
-        const user = await note.save()
-        res.status(201).send(user);
+            const {title, note} = req.body
+            const newNote = new Note(
+                {
+                    title,
+                    note
+                })
+
+        const savedNote = await newNote.save()
+        res.status(201).send(savedNote);
     } catch (error) {
         console.log(error);
       res.status(400).send(error);

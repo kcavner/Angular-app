@@ -1,1 +1,9 @@
-<p>note-creator works!</p>
+<form (submit)="createNote()">
+    <label for="title">Title:</label>
+    <input type="text" id="title" [(ngModel)]="newNote.title" name="title" required>
+  
+    <label for="note">Note:</label>
+    <textarea id="note" [(ngModel)]="newNote.note" name="note" required></textarea>
+  
+    <button type="submit">Create Note</button>
+  </form>

@@ -52,10 +52,18 @@ module.exports = {
       return res.status(401).json({ isAuthenticated: false });
     }
   },
+  
   async getNotes(req,res){
     try{
         const userId = req.params.id
-        const notes = await User.findById(userId)
+        const user = await User.findById(userId).populate('notes')
+
+        if(!user){
+          return res.status(404).json({message:'user not found'})
+        }
+
+        const userNotes = user.notes
+        res.json(userNotes)
 
     } catch (error) {
         console.log(error);
