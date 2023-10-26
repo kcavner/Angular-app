@@ -1,9 +1,9 @@
-<form (submit)="createNote()">
-    <label for="title">Title:</label>
-    <input type="text" id="title" [(ngModel)]="newNote.title" name="title" required>
-  
-    <label for="note">Note:</label>
-    <textarea id="note" [(ngModel)]="newNote.note" name="note" required></textarea>
-  
-    <button type="submit">Create Note</button>
-  </form>
+<form (submit)="createNote()" class="border rounded p-4 bg-blue-100">
+  <label for="title" class="text-gray-800">Title:</label>
+  <input type="text" id="title" [(ngModel)]="newNote.title" name="title" required class="border rounded p-2 mt-1 focus:ring focus:ring-blue-300 focus:outline-none">
+
+  <label for="note" class="text-gray-800 mt-2">Note:</label>
+  <textarea id="note" [(ngModel)]="newNote.note" name="note" required class="border rounded p-2 mt-1 focus:ring focus:ring-blue-300 focus:outline-none"></textarea>
+
+  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">Create Note</button>
+</form>

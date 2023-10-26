@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-note-creator',
@@ -13,22 +14,22 @@ export class NoteCreatorComponent {
     title: '',
     note: ''
   };
-  constructor(private http: HttpClient) {}
+  constructor(private dataService:DataService) {}
   createNote() {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json'
+    // });
 
-    this.http.post('/api/notes', this.newNote, { headers })
-      .subscribe(
-        (response: any) => {
-          console.log('Note created:', response);
-          // Handle success, e.g., show a success message or navigate to a different page.
-        },
-        (error) => {
-          console.error('Error creating note:', error);
-          // Handle the error, e.g., display an error message to the user.
-        }
+    this.dataService.postData(this.newNote)
+    .subscribe(
+      (data) => {
+        // Handle the response data here
+        console.log(data);
+      },
+      (error) => {
+        // Handle errors here
+        console.error(error);
+      }
       );
   }
 }

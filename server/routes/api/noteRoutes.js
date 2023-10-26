@@ -5,7 +5,7 @@ const {
 } = require('../../controllers/noteController');
 
 
-router.route('/:userId').post(postNote)
+router.route('/').post(postNote)
 router.route('/delete').post(deleteNote)
 
 
