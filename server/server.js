@@ -3,6 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const routes = require('./routes')
 const app = express();
+const db = require('../server/config/connection')
 
 // Middleware
 app.use(cors());
