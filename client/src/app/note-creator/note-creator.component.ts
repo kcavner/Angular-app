@@ -16,9 +16,7 @@ export class NoteCreatorComponent {
   };
   constructor(private dataService:DataService) {}
   createNote() {
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json'
-    // });
+
 
     this.dataService.postData(this.newNote)
     .subscribe(

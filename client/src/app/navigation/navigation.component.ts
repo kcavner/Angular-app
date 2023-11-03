@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router'
 
 
 @Component({
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
 })
 
 export class NavigationComponent {
+  constructor(private router: Router) {}
   barSvg = "/assets/svg/barSolid.svg"
   staggeredBarSvg = "/assets/svg/bars-staggered-solid.svg"
   fileSvg = "/assets/svg/file-regular.svg"
@@ -31,7 +33,13 @@ export class NavigationComponent {
     this.currentFolderSvg = this.currentFolderSvg === this.folderSvg ? this.openFolderSvg : this.folderSvg;
     this.toggleFolderClass()
   }
-
+  changeRoute(){
+    this.router.navigate(['/notes'])
+  }
+  folderClick(){
+    this.toggleFolderSvg()
+    this.changeRoute()
+  }
   toggleClass() {
     this.shouldApplyClass = !this.shouldApplyClass;
   }

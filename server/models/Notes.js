@@ -7,6 +7,9 @@ const noteSchema = new Schema({
     title: {
       type: String,
     },
+    folder: {
+      type: String,
+    },
 
   });
 
